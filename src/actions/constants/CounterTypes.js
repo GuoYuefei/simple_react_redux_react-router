@@ -1,0 +1,4 @@
+export const ADD_COUNTER = 'ADD_COUNTER';
+export const DECREASE_COUNTER = 'DECREASE_COUNTER';
+export const REDO_COUNTER = 'REDO_COUNTER';
+export const UNDO_COUNTER = 'UNDO_COUNTER';
