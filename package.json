@@ -4,9 +4,9 @@
   "description": "使用webpack react搭建的一个模板",
   "private": true,
   "scripts": {
-    "build": "webpack --config config/webpack.config.production.js",
-    "watch": "webpack --watch --config config/webpack.config.development.js",
-    "start": "webpack-dev-server --open --progress --config config/webpack.config.development.js",
+    "build": "webpack --config config/webpack.config.prod.js",
+    "watch": "webpack --watch --config config/webpack.config.dev.js",
+    "start": "webpack-dev-server --open --progress --config config/webpack.config.dev.js",
     "serve": "anywhere -d ./dist -h localhost -p 3001 -l",
     "test": "yarn build && yarn serve"
   },

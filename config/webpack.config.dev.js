@@ -10,9 +10,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // https://www.cnblogs.com/jack-zhou21235/p/12010088.html
 
+const OUTPUT_PATH = path.resolve(__dirname, '../dist');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     // entry: './index.jsx',
     // output: {
     //     filename: 'index.js',
@@ -26,7 +27,7 @@ module.exports = {
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: OUTPUT_PATH
     },
 
     resolve: {
@@ -76,7 +77,7 @@ module.exports = {
     // 构建代码映射源码，用于查错
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: OUTPUT_PATH,
         // compress: true,
         port: 4321,
         clientLogLevel: 'none'
@@ -88,14 +89,6 @@ module.exports = {
         ]),
 
         new CleanWebpackPlugin(),
-
-        new UglifyJsPlugin({
-            test: /\.js($|\?)/i,
-            exclude: /(public)/,
-            parallel: true,             // 默认为os.cpus().length - 1， 可以自己设置数字
-            // 生产环境不应开启sourceMap
-            // sourceMap: true,
-        }),
 
         new webpack.DefinePlugin({
             MOUNT_NODE_ID: JSON.stringify('root'),
